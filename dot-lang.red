@@ -93,7 +93,3 @@ graph-ctx: context [
 		]
 	]
 ]
-
-;print read graph1.gv
-;graph: load %graph1.gv
-;view [image graph]

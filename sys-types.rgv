@@ -1,30 +1,30 @@
 digraph 'systypes [
-	'size = "15,19"
-	'layout = 'twopi
-	'root = 'value
-	'overlap = 'false
-	'ranksep = 0.5
-	'colorscheme = 'set312
-	node ['style = 'filled]
+	size: "15,19"
+	layout: 'twopi
+	root: 'value
+	overlap: 'false
+	ranksep: 0.5
+	colorscheme: 'set312
+	node [style: 'filled]
 	'value
-	node ['fillcolor = "/set312/5"]
-	'value -> ["float!"] -> sg [["time!"] ["percent!"]]
-	'value -> ["integer!"] -> sg [["handle!"] ["char!"]]
-	'value -> sg [["tuple!"] ["pair!"]]
-	'value -> sg [node ['fillcolor = "/set312/1"]["logic!"] ["none!"] ["datatype!"] ["typeset!"]]
-	'value -> sg [["point!"] ["unset!"] ["event!"]]
-	'value -> sg [["map!"] ["bitset!"]]
-	node ['fillcolor = "/set312/4"]
-	'value -> 'series -> ["block!"] -> sg [["paren!"] ["path!"] ["hash!"]]
-	["path!"] -> sg [["get-path!"] ["lit-path!"] ["set-path!"]]
-	'series -> ["image!"]
-	'series -> ["string!"] -> sg [["vector!"] ["tag!"] ["binary!"]]
-	["string!"] -> ["email!"]
-	["string!"] -> ["url!"] -> ["file!"]
-	node ['fillcolor = "/set312/2"]
-	'value -> 'context -> ["function!"] -> ["routine!"]
-	'value -> ["object!"] -> ["error!"]
-	'value -> ["native!"] -> sg [["op!"] ["action!"]]
-	node ['fillcolor = "/set312/3"]
-	'value -> 'symbol -> ["word!"] -> sg [["lit-word!"] ["get-word!"] ["set-word!"] ["refinement!"] ["issue!"]]
+	node [fillcolor: "/set312/5"]
+	'value -> "float!" -> ["time!" "percent!"]
+	'value -> "integer!" -> ["handle!" "char!"]
+	'value -> ["tuple!" "pair!"]
+	'value -> [node [fillcolor: "/set312/1"] "logic!" "none!" "datatype!" "typeset!"]
+	'value -> ["point!" "unset!" "event!"]
+	'value -> ["map!" "bitset!"]
+	node [fillcolor: "/set312/4"]
+	'value -> 'series -> "block!" -> ["paren!" "path!" "hash!"]
+	"path!" -> ["get-path!" "lit-path!" "set-path!"]
+	'series -> "image!"
+	'series -> "string!" -> ["vector!" "tag!" "binary!"]
+	"string!" -> "email!"
+	"string!" -> "url!" -> "file!"
+	node [fillcolor: "/set312/2"]
+	'value -> 'context -> "function!" -> "routine!"
+	'value -> "object!" -> "error!"
+	'value -> "native!" -> ["op!" "action!"]
+	node [fillcolor: "/set312/3"]
+	'value -> 'symbol -> "word!" -> ["lit-word!" "get-word!" "set-word!" "refinement!" "issue!"]
 ]

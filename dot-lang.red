@@ -47,7 +47,6 @@ graph-ctx: context [
 	edgeRHS:	[some [edgeop [subgraph | ID]]]
 	edgeop:		['-> | '--]
 	node_stmt:	[ahead ID1 ID opt [ahead block! insert #"[" into [some [n-attr insert #"=" ID]] insert #"]"]]
-	;subgraph1:	[['subgraph opt ID1 | 'sg] block!]
 	subgraph1:	[opt ['subgraph opt ID1] block!]
 	subgraph:	[
 		['subgraph opt ID | ahead block!];remove 'sg] 
@@ -258,28 +257,27 @@ graph-ctx: context [
 	c-attr: [C | GC | NC | EGC | ENC | GCN | ENCG]
 	attr: 	[G | N | E | C | S | GC | GN | EN | NC | EGC | ENG | GCN | ENC | ENCG]
 
-	set 'graph func [dot-block /check /out outfile /local gr correct?][
-		output: clear ""
+	set 'graph func [dot-block /out outfile /local gr correct? fname gv png][
 		gr: none
 		num: 1
-		blk: dot-block
 		fname: either out [outfile][%out]
 		set [gv png] reduce [
 			to-file compose [(fname) ".gv"] 
 			to-file compose [(fname) ".png"]
 		]
-		out: either check [no][yes]
 		correct?: parse dot-block graph_
-		append output dot-block
-		write gv output
-		either check [
-			print correct?
-			print read gv
-		][
+		write gv append clear "" dot-block
+		either correct? [
 			result: call/error/wait rejoin [
 				{dot -Tpng } to-string gv " -o" to-string png
 			] %out.err
-			either -1 = result [print read %out.err] [load png]
+			either 1 = result [
+				probe read gv
+				probe read %out.err
+			][load png]
+		][	
+			print correct?
+			also none print read gv
 		]
 	]
 ]

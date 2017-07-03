@@ -1,6 +1,6 @@
 # red-graphviz
 Graph visualization for Red with graphviz<br>
-Dot-language sntax is defined <a href="http://www.graphviz.org/content/dot-language">here</a>.
+Dot-language syntax is defined <a href="http://www.graphviz.org/content/dot-language">here</a>.
 
 <h2>Differences from usual Dot syntax:</h2>
 <ul><li>Instead of curly braces square braces are used.</li>

@@ -2,7 +2,7 @@
 
 Graph visualization for Red with graphviz
 
-Dot-language syntax is defined [here](http://www.graphviz.org/content/dot-language).
+Dot-language syntax is defined [here](https://graphviz.gitlab.io/_pages/doc/info/lang.html).
 
 ## Differences from normal Dot syntax:
 
